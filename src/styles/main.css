@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 body{
   display: flex;
   justify-content: center;
   align-items: center;
   min-width: 100vh;
-  background: #fc1e8a;
+  background: #4a4a4a;
+  user-select: none;
 }
 
 .container{
@@ -13,7 +16,79 @@ body{
   justify-content: center;
   align-items: center;
   gap: 1.875rem;
-  background: linear-gradient(325deg, #03001e 0%, #7303c0 30%, #ec38bc 70%, #fdeff9 100%);
+  background: linear-gradient(125deg, rgba(242,191,255,1) 17%, rgba(131,76,138,1) 93%);
   padding: 2.5rem 3.75rem;
+  border-radius: 4px;
 }
 
+h2{
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 3rem;
+  color: #2C0C33;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.reset{
+  padding: 0.93rem 1.25rem;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.reset:focus{
+  color: #ec38bc;
+  background-color: black;
+}
+
+.game{
+  width: 26.875rem;
+  height: 26.875rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  transform-style: preserve-3d;
+  perspective: 31.25rem;
+}
+
+.item{
+  position: relative;
+  width: 6.25rem;
+  height: 6.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 4px;
+  font-size: 3rem;
+  transform: rotateY(180deg);
+  transition: 0.25s;
+}
+
+.item::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #3c293e;
+  /*opacity: 0.85;*/
+  border-radius: 4px;
+  transition: 0.25s;
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+}
+
+.item.boxOpen{
+  transform: rotateY(0deg);
+}
+
+.boxOpen::after,
+.boxOpen::after{
+  transform: rotateY(180deg);
+} 
